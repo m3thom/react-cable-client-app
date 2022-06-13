@@ -10,7 +10,10 @@ function App() {
     let actionCableRef
 
     const initSocket = () => {
-      actionCableRef = createConsumer('ws://localhost:3000/cable')
+      // Default to Rails action cable.
+      // actionCableRef = createConsumer('ws://localhost:3000/cable')
+      // Default to anycable.
+      actionCableRef = createConsumer('ws://localhost:8080/cable')
       actionCableRef.subscriptions.create(
         { channel: 'MessagesChannel' },
         {
